@@ -1,0 +1,27 @@
+# macOS関連
+.DS_Store
+
+# Windows関連
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# npm系（使っていれば）
+node_modules/
+package-lock.json
+yarn.lock
+
+# VSCode設定（個人環境用）
+.vscode/
+
+# buildツール（もし使うなら）
+dist/
+build/
+
+# logファイルなど
+*.log
+
+# OSやツールの一時ファイル
+*.tmp
+*.swp
+*.swo
