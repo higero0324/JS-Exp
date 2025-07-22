@@ -2,13 +2,47 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>パーティクルアニメーション</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.jsで学ぶ3Dの世界</title>
+  <link rel="stylesheet" href="main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
-  <div id="info">マウスを動かしてみてください</div>
-  <script src="script.js"></script>
+  <header>
+    <h1>Three.jsで学ぶ3Dの世界</h1>
+    <nav>
+      <a href="https://threejs.org/" target="_blank">公式サイト</a>
+      <a href="https://sbcode.net/threejs/" target="_blank">学習チュートリアル</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Three.jsってなに？</h2>
+      <p>Three.jsは、Webブラウザ上で本格的な3D表現を可能にするJavaScriptライブラリです。</p>
+      <ul>
+        <li>HTMLと組み合わせて簡単に表示できる</li>
+        <li>3Dモデルやアニメーションも扱える</li>
+        <li>無料で商用利用も可能</li>
+      </ul>
+    </section>
+
+    <section id="demo">
+      <h2>📦 デモ：立方体を表示してみよう！</h2>
+      <div id="canvas-container"></div>
+    </section>
+
+    <section id="gallery">
+      <h2>🖼️ ギャラリーイメージ</h2>
+      <img src="https://threejs.org/files/projects/solarsystem.jpg" alt="Three.js 宇宙デモ" />
+      <img src="https://threejs.org/files/projects/spaceship.jpg" alt="Three.js スペースシップデモ" />
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Three.js 学習サイト</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>

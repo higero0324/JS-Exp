@@ -1,27 +1,62 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* レスポンシブで視認性の高いデザイン */
 body {
-  overflow: hidden;
-  background: #0d0d0d;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-#canvas {
-  display: block;
+header {
+  background-color: #0066cc;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-#info {
-  position: fixed;
-  top: 10px;
-  left: 10px;
+nav a {
   color: #ffffff;
-  font-size: 1rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px 10px;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+#canvas-container {
+  width: 100%;
+  height: 400px;
+  background: #eee;
+  margin-top: 1rem;
+}
+
+img {
+  width: 100%;
+  max-width: 480px;
+  margin: 1rem auto;
+  display: block;
   border-radius: 8px;
-  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ddd;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  #canvas-container {
+    height: 300px;
+  }
 }

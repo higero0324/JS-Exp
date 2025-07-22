@@ -1,71 +1,39 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+// Three.js基本デモ：回転する立方体
+const container = document.getElementById("canvas-container");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// シーン、カメラ、レンダラー
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
 
-let particles = [];
-const colors = ["#00ffff", "#ff00ff", "#ffff00", "#00ff00", "#ff8800"];
-let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+// オブジェクト作成
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+// ライト追加
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 2).normalize();
+scene.add(light);
 
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
+// カメラ位置
+camera.position.z = 3;
 
-// パーティクルクラス
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.radius = Math.random() * 3 + 1;
-    this.color = colors[Math.floor(Math.random() * colors.length)];
-    this.vx = (Math.random() - 0.5) * 4;
-    this.vy = (Math.random() - 0.5) * 4;
-    this.alpha = 1;
-    this.decay = Math.random() * 0.01 + 0.005;
-  }
-
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
-    this.alpha -= this.decay;
-  }
-
-  draw() {
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.restore();
-  }
-
-  isAlive() {
-    return this.alpha > 0;
-  }
-}
-
+// アニメーション
 function animate() {
-  ctx.fillStyle = "rgba(13, 13, 13, 0.2)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  particles.push(new Particle(mouse.x, mouse.y));
-
-  particles = particles.filter((p) => p.isAlive());
-
-  particles.forEach((p) => {
-    p.update();
-    p.draw();
-  });
-
   requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
 }
-
 animate();
+
+// ウィンドウサイズ対応
+window.addEventListener("resize", () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
