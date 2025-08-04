@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <!-- highlight.js CDN & 初期化 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 <body>
   <header>
@@ -47,6 +51,50 @@
     <section id="demo">
       <h2>📦 デモ：立方体を表示してみよう！</h2>
       <div id="canvas-container"></div>
+      <h3>サンプルコード</h3>
+      <pre id="code-sample"><code class="language-js">
+<code class="language-js vscode-style">
+// Three.js基本デモ：回転する立方体
+const container = document.getElementById("canvas-container");
+
+// シーン、カメラ、レンダラー
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
+
+// オブジェクト作成
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshStandardMaterial({ color: 0xffff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+// ライト追加
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 2).normalize();
+scene.add(light);
+
+// カメラ位置
+camera.position.z = 3;
+
+// アニメーション
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();
+
+// ウィンドウサイズ対応
+window.addEventListener("resize", () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
+</code>
+      </code></pre>
     </section>
       
   </main>

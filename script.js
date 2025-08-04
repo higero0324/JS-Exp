@@ -10,7 +10,7 @@ container.appendChild(renderer.domElement);
 
 // オブジェクト作成
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
+const material = new THREE.MeshStandardMaterial({ color: 0xffff00 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 

@@ -1,62 +1,222 @@
-/* レスポンシブで視認性の高いデザイン */
-body {
+/* ====== RESET ====== */
+* {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ====== HEADER ====== */
 header {
-  background-color: #0066cc;
-  color: white;
-  padding: 1rem;
   text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff80;
+}
+
+nav {
+  margin-top: 10px;
 }
 
 nav a {
-  color: #ffffff;
-  margin: 0 1rem;
+  margin: 0 10px;
   text-decoration: none;
+  color: #90e0ef;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: #00ffff;
+}
+
+/* ====== MAIN ====== */
 main {
-  padding: 2rem;
-  max-width: 960px;
+  max-width: 1100px;
   margin: auto;
+  padding: 20px;
+}
+
+/* ====== INTRO SECTION ====== */
+#intro {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #00ffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  margin-bottom: 40px;
+}
+
+#intro h2, #intro h3 {
+  color: #00ffff;
+  margin-bottom: 10px;
+}
+
+#intro p {
+  margin: 10px 0 20px;
+}
+
+#intro ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#intro li {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #ffffff;
+}
+
+
+#intro img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* ====== DEMO SECTION ====== */
+#demo {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  text-align: center;
+}
+
+#demo h2 {
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+#demo h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #canvas-container {
   width: 100%;
-  height: 400px;
-  background: #eee;
-  margin-top: 1rem;
+  aspect-ratio: 16 / 9;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.2);
+  overflow: hidden;
 }
 
-img {
-  width: 100%;
-  max-width: 480px;
-  margin: 1rem auto;
-  display: block;
+/* ====== CODE SAMPLE (VSCode風) ====== */
+#code-sample {
+  background: #1e1e1e;
+  color: #d4d4d4;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  padding: 24px 18px;
+  margin: 32px auto 0 auto;
+  max-width: 800px;
+  text-align: left;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+  font-size: 1rem;
+  overflow-x: auto;
+  white-space: pre;
+  border: 1px solid #333;
 }
 
+#code-sample::-webkit-scrollbar {
+  height: 10px;
+  background: #222;
+  border-radius: 8px;
+}
+#code-sample::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 8px;
+}
+
+#code-sample code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+  /* VSCode風シンタックスハイライト */
+}
+
+/* VSCode風シンタックスハイライト for JS */
+.language-js .comment { color: #6a9955; }
+.language-js .keyword { color: #569cd6; }
+.language-js .string { color: #ce9178; }
+.language-js .number { color: #b5cea8; }
+.language-js .function { color: #dcdcaa; }
+.language-js .variable { color: #9cdcfe; }
+.language-js .operator { color: #d4d4d4; }
+.language-js .punctuation { color: #d4d4d4; }
+.language-js .class-name { color: #4ec9b0; }
+.language-js .property { color: #d7ba7d; }
+.language-js .constant { color: #b5cea8; }
+.language-js .parameter { color: #9cdcfe; }
+.language-js .builtin { color: #c586c0; }
+
+/* ====== FOOTER ====== */
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #ddd;
-  color: #555;
+  margin-top: 60px;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  color: #aaa;
 }
 
-@media (max-width: 600px) {
+/* ====== MEDIA QUERIES ====== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
   nav a {
     display: block;
-    margin: 0.5rem 0;
+    margin: 10px 0;
+  }
+
+  #intro, #demo {
+    padding: 20px;
   }
 
   #canvas-container {
-    height: 300px;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  header {
+    padding: 20px 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #canvas-container {
+    aspect-ratio: 1 / 1;
   }
 }
