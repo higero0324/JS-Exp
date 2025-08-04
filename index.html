@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Three.jsで学ぶ3Dの世界</title>
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 </head>
 <body>
@@ -18,6 +19,22 @@
 
   <main>
     <section id="intro">
+      <h2>今回紹介する技術</h2>
+      <p>今回はJavaScriptの技術を紹介したいと思います。</p>
+      <img src="JS.png" alt="Three.js jsロゴ" />
+      <h3>JavaScriptの技術は大まかに以下に分類されます。</h3>
+      <ul>
+        <li>フロントエンド</li>
+        <p>ユーザーが直接触れる部分を作る技術で、画面表示・操作・動き・デザインなどが対象となっており、ブラウザ上で動作します。</p>
+        <li>バックエンド</li>
+        <p>サーバーサイドで動作する部分を作る技術で、データベースとの連携やAPIの実装などが対象となります。</p>
+        <li>ツール</li>
+        <p>開発を支援するためのツールやライブラリを作る技術で、ビルドツールやテストフレームワークなどが含まれます。</p>
+      </ul>
+      <h3>今回紹介するのは、中でもフロントエンドに分類される、Three.jsです。</h3>
+      <img src="TH.png" alt="Three.js Three.jsロゴ" />
+      
+
       <h2>Three.jsってなに？</h2>
       <p>Three.jsは、Webブラウザ上で本格的な3D表現を可能にするJavaScriptライブラリです。</p>
       <ul>
@@ -31,16 +48,12 @@
       <h2>📦 デモ：立方体を表示してみよう！</h2>
       <div id="canvas-container"></div>
     </section>
-
-    <section id="gallery">
-      <h2>🖼️ ギャラリーイメージ</h2>
-      <img src="https://threejs.org/files/projects/solarsystem.jpg" alt="Three.js 宇宙デモ" />
-      <img src="https://threejs.org/files/projects/spaceship.jpg" alt="Three.js スペースシップデモ" />
-    </section>
+      
   </main>
 
   <footer>
     <p>&copy; 2025 Three.js 学習サイト</p>
+    <p> 制作時間:6時間</p>
   </footer>
 
   <script src="main.js"></script>
